@@ -29,7 +29,7 @@ const Navigation = () => {
                 <Nav>
                     <Nav.Link href='/' className='fs-3'>Home</Nav.Link>
                     <Nav.Link href='/catalog' className='fs-3'>Catalog</Nav.Link>
-                    <Nav.Link className='fs-3'>Pricing</Nav.Link>
+                    <Nav.Link href='#categories' className='fs-3'>Categories</Nav.Link>
                     <NavDropdown className='fs-3' title="Account" id="basic-nav-dropdown">
                         <NavDropdown.Item href='/signIn'>
                             Sign In

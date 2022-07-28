@@ -8,7 +8,7 @@
     z-index: -5;
   }
  .jumbotron h1{
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Cairo',sans-serif;
   height: 70vh;
   margin-top: 4vw;
   margin-left: 7vw;
@@ -19,24 +19,55 @@
   color: rgba(255, 255, 255, 0.55);
  }
  #categories{
-  border: solid red;
   height: 80vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
  }
  .motocross{
-  border: solid yellow;
-  width: 25vw;
+  font-family: 'Cairo',sans-serif;
+  text-align: center;
+  width: 30vw;
   height: 25vw;
+ }
+ .motocross img,
+ .cruiser img,
+ .sports img{
+  transition: 200ms ease-in-out;
+ }
+ .motocross:hover img,
+ .cruiser:hover img,
+ .sports:hover img{
+  transform: scale(1.1);
+ }
+ .motocross img{
+  width: 100%;
+  margin-top: 1vw;
  }
  .sports{
-  border: solid green;
-  width: 25vw;
+  font-family: 'Cairo',sans-serif;
+  text-align: center;
+  width: 30vw;
   height: 25vw;
  }
+ .sports img{
+  margin-top: -1vw;
+  width: 105%;
+ }
  .cruiser{
-  border: solid black;
-  width: 25vw;
+  font-family: 'Cairo',sans-serif;
+  text-align: center;
+  width: 30vw;
   height: 25vw;
+ }
+ .cruiser img{
+  margin-top: 2.5vw;
+  width:90% ;
+ }
+ .main-header h1{
+  font-family: 'Cairo',sans-serif;
+  text-align: center;
+  font-size: 3vw;
+  font-weight: 800;
+  margin: 2vw;
  }

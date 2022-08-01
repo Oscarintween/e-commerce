@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap');
+*{
+    font-family: 'Cairo',sans-serif;
+}
+
+.images{
+    width: 30vw;
+}
+.catalog h1{
+    font-size: 3vw;
+    text-align: center;
+    margin: 5vw;
+}
+.navBackground{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    width: 100%;
+    height: 7vw;
+    background-color: #0f0f0f;
+}

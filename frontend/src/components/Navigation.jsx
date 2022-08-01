@@ -1,5 +1,6 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
+import { useNavigate } from 'react-router-dom';
+import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -7,29 +8,32 @@ import tire from '../assets/tire.png'
 import '../index.css'
 
 const Navigation = () => {
+    const navigate = useNavigate()
+    const authorized = localStorage.getItem('user')
+    const logout =()=>{
+        localStorage.clear()
+        navigate('/signIn')
+    }
   return (
     <div>
         <Navbar className='navbar' collapseOnSelect expand="lg" variant="dark">
             <Container>
-                <Navbar.Brand className='brand' href="#home">
-                <Nav.Link className='fs-3' href="/">
-                    <a href="/">
-                        <img src={tire} className="logo react" alt="spinning tire" />
-                    </a>
-                    </Nav.Link>
+                <Navbar.Brand className='brand fs-3' href="/">
+                    <img src={tire} className="logo react" alt="spinning tire" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
                     <h1 style={{color:'#E50002'}}>Motoshop</h1>
                 </Nav>
-                <Nav className="me-auto">
-                    
-                </Nav>
                 <Nav>
                     <Nav.Link href='/' className='fs-3'>Home</Nav.Link>
                     <Nav.Link href='/catalog' className='fs-3'>Catalog</Nav.Link>
-                    <Nav.Link href='#categories' className='fs-3'>Categories</Nav.Link>
+                    {
+                        authorized 
+                        ? 
+                        <Nav.Link href='/signIn' onClick={logout} className='fs-3'>Log Out</Nav.Link> 
+                        :
                     <NavDropdown className='fs-3' title="Account" id="basic-nav-dropdown">
                         <NavDropdown.Item href='/signIn'>
                             Sign In
@@ -39,8 +43,10 @@ const Navigation = () => {
                             Create Account
                         </NavDropdown.Item>
                     </NavDropdown>
+                    }
+                    
                     <Nav.Link href="/cart">
-                    <i style={{color:'red'}} class="bi bi-cart4 fs-2"></i>
+                    <i style={{color:'red'}} className="bi bi-cart4 fs-2"></i>
                     </Nav.Link>
                 </Nav>
                 </Navbar.Collapse>

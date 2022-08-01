@@ -6,6 +6,7 @@ const SignIn = () => {
   return (
     <div className='sign-in'>
       <div className='sign-in_form'>
+        <h1>Sign In</h1>
         <Form.Floating className="mb-3">
           <Form.Control
             id="floatingInputCustom"

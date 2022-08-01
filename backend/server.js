@@ -8,7 +8,8 @@ const connectDB = require('./config/db')
 app.use(cors())
 connectDB()
 app.use(express.json())
-
+app.use('/motorcycles',require('./routes/motorcycle'))
+app.use('/user',require('./routes/users'))
 app.listen(port,()=>{
     console.log(`server is running on port ${port}`)
 })

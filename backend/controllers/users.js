@@ -14,9 +14,23 @@ const addUser = async(req,res) =>{
         }) 
         res.status(201).send(user)
 }
+
+const signIn = async (req,res) =>{
+    if(req.body.email && req.body.password){
+        const user = await Users.findOne(req.body)
+        if(user){
+            res.send(user)
+        }else{
+            res.send({message:"user not found"})
+        }
+    }else{
+        res.send({message:"enter correct email and password"})
+    }
+    
+}
 module.exports = {
     getUser,
     addUser,
-    // updateUser,
+    signIn,
     // deleteUser
 }

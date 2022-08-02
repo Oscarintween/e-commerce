@@ -26,13 +26,19 @@ const Navigation = () => {
                 <Nav className="me-auto">
                     <h1 style={{color:'#E50002'}}>Motoshop</h1>
                 </Nav>
+                
+                <Nav className='fs-1 me-auto'>
+                    <h3 style={{color:'#E50002'}}>{authorized?JSON.parse(authorized).name:''}</h3> 
+                </Nav>
                 <Nav>
                     <Nav.Link href='/' className='fs-3'>Home</Nav.Link>
                     <Nav.Link href='/catalog' className='fs-3'>Catalog</Nav.Link>
                     {
                         authorized 
                         ? 
-                        <Nav.Link href='/signIn' onClick={logout} className='fs-3'>Log Out</Nav.Link> 
+                        <Nav.Link href='/signIn' onClick={logout} className='fs-3'>
+                            Log Out  
+                        </Nav.Link> 
                         :
                     <NavDropdown className='fs-3' title="Account" id="basic-nav-dropdown">
                         <NavDropdown.Item href='/signIn'>

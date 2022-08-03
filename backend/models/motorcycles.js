@@ -9,7 +9,7 @@ const motorcycleSchema = new Schema({
     description:String,
     motor:Number,
     horsepower:String,
-    price:Number,
+    price:String,
     color:String,
     weight:Number,
     transmission:String,

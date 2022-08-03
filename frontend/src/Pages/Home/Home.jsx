@@ -27,19 +27,19 @@ const Home = () => {
         <div id = 'categories'>
           <div className="motocross">
             <h2>Motocross</h2>
-            <Link to='/'>
+            <Link to='/catalog'>
               <img src={motocross} alt="motocross" />
             </Link>
           </div>
           <div className="sports ">
             <h2>Sports</h2>
-            <Link to='/'>
+            <Link to='/catalog'>
               <img src={sports} alt="sports" />
             </Link>
           </div>
           <div className="cruiser">
             <h2>Cruiser</h2>
-            <Link to='/'>
+            <Link to='/catalog'>
               <img src={cruiser} alt="cruisers" />
             </Link>
           </div>

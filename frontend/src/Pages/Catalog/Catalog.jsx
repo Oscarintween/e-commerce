@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import './catalog.css'
 import Card from 'react-bootstrap/Card';
@@ -7,11 +8,12 @@ import Row from 'react-bootstrap/Row';
 
 
 const Catalog = () => {
+  const navigate = useNavigate()
   const [bikes, setBikes] = useState([])
   const getBikes = async()=>{
     const url = 'http://localhost:4000/motorcycles'
       const data = await axios.get(url)
-      await setBikes(data.data)
+      setBikes(data.data)
       console.log(bikes)
   }
   useEffect(()=>{
@@ -20,15 +22,12 @@ const Catalog = () => {
   return (
     
     <div className='catalog'>
-      <div className="navBackground">
-
-      </div>
       <h1>Catalog</h1>
       <Row xs={1} md={3} className="g-4">
         {bikes.map((bike)=>(
-          <Col>
+          <Col key={bike.model}>
           <Card border='light' className="text-center">
-            <Card.Img className='images' variant="top" src={bike.image} />
+            <Card.Img onClick={()=>navigate(`/product/${bike._id}`)} className='images' variant="top" src={bike.image} />
               <Card.Body>
                 <Card.Title>{`${bike.brand} ${bike.model}`}</Card.Title>
               </Card.Body>

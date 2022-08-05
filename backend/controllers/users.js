@@ -18,7 +18,7 @@ const addUser = async(req,res) =>{
         const user = await Users.create({name,email,password}) 
     //=====create the token for user=============
         const token = createToken(user._id)
-        res.status(201).json({email,token})
+        res.status(201).json({name,email,token})
     } catch (error) {
         res.status(400).send('user was not created')
     }      
@@ -31,10 +31,11 @@ const signIn = async (req,res) =>{
         throw Error('All fields must be filled') 
     }
         const user = await Users.findOne({email})
-        const match = await bcrypt.compare(password,user.password)
-        if(match){
+        const name = user.name
+        const validUser = await bcrypt.compare(password,user.password)
+        if(validUser){
             const token = createToken(user._id)
-            res.status(200).json({email,token})
+            res.status(200).json({name,email,token})
         }else{
             res.status(400).json({message:"invalid email or password"})
         }

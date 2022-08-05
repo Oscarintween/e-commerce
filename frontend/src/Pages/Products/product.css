@@ -2,14 +2,6 @@
 *{
     font-family: 'Cairo',sans-serif;
 }
-.navBackground{
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    width: 100%;
-    height: 8rem;
-    background-color: #0f0f0f;
-}
 .product h1{
     font-size: 3vw;
     text-align: center;

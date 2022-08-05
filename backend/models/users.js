@@ -22,12 +22,6 @@ const userSchema = new Schema({
     timestamps:true
 })
     userSchema.plugin(uniqueValidator,{message:'an account with this email has already been created'})
-//==========this function executes after user is saved to db=======================
-    // userSchema.post('save',function(doc,next){
-    //     console.log('new user was created and saved', doc)
-        
-    //     next()
-    // })
 //==========this function executes before user is saved to db=======================
     userSchema.pre('save',async function(next){
         // console.log('user about to be created',this)

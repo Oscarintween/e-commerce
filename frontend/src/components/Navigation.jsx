@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import tire from '../assets/tire.png'
+import { Link } from 'react-router-dom';
 import '../index.css'
 
 const Navigation = () => {
@@ -28,7 +29,11 @@ const Navigation = () => {
                 </Nav>
                 
                 <Nav className='fs-1 me-auto'>
-                    <h3 style={{color:'#212529'}}>{authorized?JSON.parse(authorized).name:''}</h3> 
+                    <Link style={{color:'red',textDecoration:'none'}} to='/profile'>
+                        <h3>
+                            {authorized?JSON.parse(authorized).name + "'s Profile":''}
+                        </h3>
+                    </Link> 
                 </Nav>
                 <Nav>
                     <Nav.Link href='/' className='fs-3'>Home</Nav.Link>

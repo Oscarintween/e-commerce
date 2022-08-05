@@ -28,7 +28,7 @@ const Navigation = () => {
                 </Nav>
                 
                 <Nav className='fs-1 me-auto'>
-                    <h3 style={{color:'#E50002'}}>{authorized?JSON.parse(authorized).name:''}</h3> 
+                    <h3 style={{color:'#212529'}}>{authorized?JSON.parse(authorized).name:''}</h3> 
                 </Nav>
                 <Nav>
                     <Nav.Link href='/' className='fs-3'>Home</Nav.Link>

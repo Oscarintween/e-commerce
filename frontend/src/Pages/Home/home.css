@@ -4,8 +4,11 @@
     top: 0;
     object-fit: cover;
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     z-index: -5;
+  }
+  .jumbotron{
+    height: 90vh;
   }
  .jumbotron h1{
   font-family: 'Cairo',sans-serif;
@@ -31,29 +34,19 @@
   width: 30vw;
   height: 25vw;
  }
- .motocross img,
- .cruiser img,
- .sports img{
-  transition: 200ms ease-in-out;
- }
- .motocross:hover img,
- .cruiser:hover img,
- .sports:hover img{
-  transform: scale(1.1);
- }
+
  .motocross img{
   width: 100%;
-  margin-top: 1vw;
  }
  .sports{
   font-family: 'Cairo',sans-serif;
   text-align: center;
-  width: 30vw;
+  width: 32vw;
   height: 25vw;
  }
  .sports img{
   margin-top: -1vw;
-  width: 105%;
+  width: 108% !important;
  }
  .cruiser{
   font-family: 'Cairo',sans-serif;
@@ -61,10 +54,9 @@
   width: 30vw;
   height: 25vw;
  }
- .cruiser img{
-  margin-top: 2.5vw;
-  width:90% ;
- }
+ /* .cruiser img{
+  width:80% !important;
+ } */
  .main-header h1{
   font-family: 'Cairo',sans-serif;
   text-align: center;
@@ -75,3 +67,109 @@
  main{
   height: 80vh;
  }
+ figure.motorcycle {
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  /* margin: 10px;
+  min-width: 220px;
+  max-width: 310px;
+  max-height: 220px;
+  width: 100%; */
+  text-align: left; 
+}
+figure.motorcycle * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+figure.motorcycle img {
+  width: 100%;
+  opacity: 1;
+  width: 100%;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+figure.motorcycle figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 30px 3em;
+  width: 100%;
+  height: 100%;
+}
+figure.motorcycle figcaption::before {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 100%;
+  border-left: 4px solid rgba(255, 255, 255, 0.8);
+  content: '';
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+}
+figure.motorcycle h2,
+figure.motorcycle p {
+  margin: 0 0 5px;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s,-webkit-transform 0.35s,-moz-transform 0.35s,-o-transform 0.35s,transform 0.35s;
+}
+figure.motorcycle h2 {
+  word-spacing: -0.15em;
+  text-align: center;
+  font-size: 2.5vw;
+  font-weight: 300;
+  text-transform: uppercase;
+  -webkit-transform: translate3d(30%, 0%, 0);
+  transform: translate3d(30%, 0%, 0);
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+figure.motorcycle p {
+  font-weight: 200;
+  font-size: 1.5vw;
+  -webkit-transform: translate3d(0%, 30%, 0);
+  transform: translate3d(0%, 30%, 0);
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+figure.motorcycle a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  color: #ffffff;
+}
+figure.motorcycle:hover img {
+  opacity: 0.3;
+}
+figure.motorcycle:hover figcaption h2 {
+  opacity: 1;
+  -webkit-transform: translate3d(0%, 0%, 0);
+  transform: translate3d(0%, 0%, 0);
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+figure.motorcycle:hover figcaption p {
+  opacity: 0.9;
+  -webkit-transform: translate3d(0%, 0%, 0);
+  transform: translate3d(0%, 0%, 0);
+  -webkit-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+}
+figure.motorcycle:hover figcaption::before {
+  background: rgba(255, 255, 255, 0);
+  left: 30px;
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+figure.motorcycle:hover{
+  background: #000000;
+}

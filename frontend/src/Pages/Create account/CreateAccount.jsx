@@ -26,9 +26,8 @@ useEffect(()=>{
       email:email,
       password:password
     }
-    console.log(userInfo)
     await axios.post(url,userInfo)
-    localStorage.setItem("user",JSON.stringify(userInfo))
+    localStorage.setItem("user",JSON.stringify(userInfo.name))
     navigate('/')
   }
 

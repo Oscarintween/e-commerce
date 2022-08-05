@@ -25,9 +25,10 @@ const SignIn = () => {
     }
     let result = await axios.post(url,userInfo)
     result = result.data
-    if(result.name){
+    console.log(result)
+    if(result.email){
         localStorage.setItem("user",JSON.stringify(result))
-        navigate('/')
+        navigate('/profile')
     }else{
       alert('email or password is incorrect')
     }

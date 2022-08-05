@@ -4,7 +4,7 @@
 }
 
 .images{
-    width: 30vw;
+    width: 28vw;
     transition: 200ms ease-in-out;
     cursor: pointer;
 }

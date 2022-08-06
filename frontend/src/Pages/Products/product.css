@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap');
+*{
+    font-family: 'Cairo',sans-serif;
+}
+.product h1{
+    font-size: 3vw;
+    text-align: center;
+    margin-top: 6vw;
+}
+.product-container{
+    height:40vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+.product-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65vw;
+    background-color: white;
+
+}
+.product-image img{
+    width: 80%;
+    padding: 1vw 3vw;
+}
+.product-details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 35vw;
+}
+.product-details ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 70%;
+    width: 55%;
+    font-size: 1.5vw;
+    list-style: none;
+    background-color: #191919c7;
+    border-radius: 5px;
+}
+.product-details li{
+    padding: 0vw 0.5vw;
+    width: 100%;
+    color: #fff;
+}
+.product-details h2{
+    font-size: 2vw;
+    color: #f4e2e2;
+    margin-left: 2vw;
+}
+.product-description{
+    height: 20vw;
+    font-size: 2vw;
+    padding: 4vw 10vw;
+}

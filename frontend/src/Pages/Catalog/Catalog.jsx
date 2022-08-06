@@ -11,7 +11,7 @@ const Catalog = () => {
   const navigate = useNavigate()
   const [bikes, setBikes] = useState([])
   const getBikes = async()=>{
-    const url = 'http://localhost:4000/motorcycles'
+    const url = 'https://motoshop-backend.herokuapp.com/motorcycles'
       const data = await axios.get(url)
       setBikes(data.data)
       console.log(bikes)

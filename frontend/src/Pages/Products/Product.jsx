@@ -2,15 +2,31 @@ import React,{useState,useEffect} from 'react'
 import './product.css'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { useDispatchCart } from '../../context/CartContext'
 
 const Product = () => {
+  const dispatch = useDispatchCart()
+  // const [cart,setCart] = useState((JSON.parse(localStorage.getItem("cart")) || []))
+  const url = 'http://localhost:4000/motorcycles/'
   const {id}= useParams()
   const[bikeInfo,setBikeInfo] = useState([])
+
   const getBike = async()=>{
-    const url = 'http://localhost:4000/motorcycles/'
       const data = await axios.get(url+id)
       setBikeInfo(data.data)
-      console.log(bikeInfo)
+      
+  }
+  const addToCart = (item)=>{ 
+    console.log(item)
+    dispatch({type:"ADD",item})
+    // console.log(cart)
+    // setCart([...cart,info])
+    // console.log('after',cart)
+    // localStorage.setItem("cart",JSON.stringify(cart))
+  }
+  const removeFromCart = (info)=>{
+    // setCart(cart.filter((i)=>i._id!==info._id))
+    // localStorage.setItem("cart",JSON.stringify(cart))
   }
   useEffect(()=>{
     getBike()
@@ -34,9 +50,16 @@ const Product = () => {
           </ul>
         </div>
       </div>
+      {/* {cart.includes(bikeInfo)
+      ? */}
+      {/* <button className='add-to-cart' onClick={()=>removeFromCart(item)}>REMOVE FROM CART</button>
+      : */}
+      <button className='add-to-cart' onClick={()=>addToCart(bikeInfo)}>ADD TO CART</button>
+    {/* } */}
+      
       <div className="product-description">
           {bikeInfo.description}
-        </div>
+      </div>
     </div>
   )
 }

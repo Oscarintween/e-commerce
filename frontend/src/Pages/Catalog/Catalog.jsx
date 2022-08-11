@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useContext, useEffect,useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import './catalog.css'
@@ -6,12 +6,11 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-
 const Catalog = () => {
   const navigate = useNavigate()
   const [bikes, setBikes] = useState([])
   const getBikes = async()=>{
-    const url = 'https://motoshop-backend.herokuapp.com/motorcycles'
+    const url ='http://localhost:4000/motorcycles'
       const data = await axios.get(url)
       setBikes(data.data)
       console.log(bikes)

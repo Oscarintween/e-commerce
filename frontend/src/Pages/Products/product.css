@@ -57,3 +57,14 @@
     font-size: 2vw;
     padding: 4vw 10vw;
 }
+.add-to-cart{
+    right: 12vw;
+    position: absolute;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1vw;
+    background-image: linear-gradient(to bottom,red,#c00);
+    color: whitesmoke;
+    padding: 0.5vw 1.5vw;
+    border-radius: 2px;
+    border: 1px none;
+}

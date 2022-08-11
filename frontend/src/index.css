@@ -29,6 +29,25 @@
 .navbar{
   background-color: #0f0f0f6e;
 }
+.navlinks{
+  margin-left: 1vw;
+  color: #B0B7BC;
+  text-decoration: none;
+}
+.navlinks:hover{
+  color: red;
+}
+.cart-icon{
+  margin-left: 1vw;
+}
+.product-count{
+  text-decoration: none;
+}
+.product-count small{
+  position: absolute;
+  font-size: 1.2vw;
+  font-weight: 800;
+}
 .footer{
   display: flex;
   justify-content: space-evenly;

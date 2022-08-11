@@ -7,8 +7,10 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import tire from '../assets/tire.png'
 import { Link } from 'react-router-dom';
 import '../index.css'
+import { useCart } from '../context/CartContext';
 
 const Navigation = () => {
+    const items = useCart()
     const navigate = useNavigate()
     const authorized = localStorage.getItem('user')
     const logout =()=>{
@@ -19,46 +21,65 @@ const Navigation = () => {
     <div>
         <Navbar className='navbar' collapseOnSelect expand="lg" variant="dark">
             <Container>
-                <Navbar.Brand className='brand fs-3' href="/">
-                    <img src={tire} className="logo react" alt="spinning tire" />
-                </Navbar.Brand>
+                <div className='brand fs-3'>
+                    <Link to='/'>
+                        <img src={tire} className="logo react" alt="spinning tire" />
+                    </Link>
+                </div>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
                     <h1 style={{color:'#E50002'}}>Motoshop</h1>
                 </Nav>
                 
-                <Nav className='fs-1 me-auto'>
-                    <Link style={{color:'red',textDecoration:'none'}} to='/profile'>
-                        <h3>
+                <div className='fs-1 me-auto'>
+                    <Link className='navlinks' to='/profile'>
+                        
                             {authorized?JSON.parse(authorized).name + "'s Profile":''}
-                        </h3>
+                        
                     </Link> 
-                </Nav>
+                </div>
                 <Nav>
-                    <Nav.Link href='/' className='fs-3'>Home</Nav.Link>
-                    <Nav.Link href='/catalog' className='fs-3'>Catalog</Nav.Link>
+                    <div className='fs-3'>
+                        <Link className='navlinks' to='/'>
+                            Home
+                        </Link>
+                    </div>
+                    <div className='fs-3'>
+                        <Link className='navlinks' to='/catalog'>
+                            Catalog
+                        </Link>
+                    </div>
+                        
                     {
                         authorized 
                         ? 
-                        <Nav.Link href='/signIn' onClick={logout} className='fs-3'>
-                            Log Out  
-                        </Nav.Link> 
+                        <Nav onClick={logout} className='fs-3'>
+                            <Link className='navlinks' to='/'>
+                                LogOut 
+                            </Link>  
+                        </Nav> 
                         :
                     <NavDropdown className='fs-3' title="Account" id="basic-nav-dropdown">
-                        <NavDropdown.Item href='/signIn'>
-                            Sign In
+                        <NavDropdown.Item>
+                            <Link to='/signIn'>
+                                Sign In
+                            </Link>
                         </NavDropdown.Item>
                     <NavDropdown.Divider />
-                        <NavDropdown.Item href="/createAccount">
-                            Create Account
+                        <NavDropdown.Item >
+                            <Link to="/createAccount">
+                                Create Account
+                            </Link>                           
                         </NavDropdown.Item>
                     </NavDropdown>
                     }
                     
-                    <Nav.Link href="/cart">
-                    <i style={{color:'red'}} className="bi bi-cart4 fs-2"></i>
-                    </Nav.Link>
+                    <Nav>
+                        <Link className='product-count' to='/cart'>
+                            <i className="bi bi-cart4 fs-2 cart-icon"><small>{items.length}</small></i>
+                        </Link>
+                    </Nav>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

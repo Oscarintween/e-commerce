@@ -14,19 +14,18 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/catalog' element={<Catalog />} />
-        <Route path='/product/:id' element={<Product />} /> 
-        <Route path='/signIn' element={<SignIn />} />
-        <Route path='/createAccount' element={<CreateAccount />} />
-        <Route element={<LoggedIn />}>
-          <Route path='/profile' element={<Profile />} /> 
-          <Route path='/cart' element={<Cart />} />
-        </Route>
-        
-      </Routes>
+        <Navigation />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/catalog' element={<Catalog />} />
+          <Route path='/product/:id' element={<Product />} /> 
+          <Route path='/signIn' element={<SignIn />} />
+          <Route path='/createAccount' element={<CreateAccount />} />
+          <Route element={<LoggedIn />}>
+            <Route path='/profile' element={<Profile />} /> 
+            <Route path='/cart' element={<Cart />} />
+          </Route>
+        </Routes>
     </div>
   )
 }

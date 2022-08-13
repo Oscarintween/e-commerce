@@ -1,6 +1,7 @@
 import React from 'react'
 import './cart.css'
 import { useCart, useDispatchCart } from '../../context/CartContext'
+import {PayPalScriptProvider,PayPalButtons} from '@paypal/react-paypal-js'
 
 
 const CartPage = () => {
@@ -55,9 +56,30 @@ const CartPage = () => {
         <div>
           <h2>${totalPrice.toLocaleString()}</h2>
         </div>
-        <div>
-          <button>Checkout</button>
-        </div>
+        <PayPalScriptProvider 
+        options={{
+          "client-id":
+          "AWm1TQOdD4Ec37EmR-jqAuOO0ragfJKV4FhZU7nwjYfED0F2HZoZtKlZ2NmgoqjUljEA4eV05jiRZwyY"
+        }}>
+          <PayPalButtons
+            createOrder={(data, actions) => {
+              return actions.order.create({
+                purchase_units: [
+                  {
+                    amount: {
+                      value: totalPrice,
+                    },
+                  },
+                ],
+              });
+            }}
+            onApprove={async (data, actions) => {
+              const details = await actions.order.capture();
+              const name = details.payer.name.given_name;
+              alert("Transaction completed by " + name);
+            }}
+          />
+        </PayPalScriptProvider>
       </div>
     </div>
   )

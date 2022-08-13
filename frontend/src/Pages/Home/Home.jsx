@@ -6,6 +6,7 @@ import sports from '../../assets/hondaCBR.jpg'
 import motocross from '../../assets/motocross.jpg'
 import Footer from '../../components/Footer'
 import {Link} from 'react-router-dom'
+import Promotions from '../../components/Promotions'
 
 const Home = () => {
   return (
@@ -21,6 +22,9 @@ const Home = () => {
         </div>
       </header>
       <main>
+        <div className='promotions'>
+          <Promotions />
+        </div>
         <div className="main-header">
           <h1>Categories</h1>
         </div>
@@ -63,11 +67,7 @@ const Home = () => {
           </div>
         </div>
       </main>
-      <footer>
-        <div>
           <Footer />
-        </div>
-      </footer>  
     </>
   )
 }

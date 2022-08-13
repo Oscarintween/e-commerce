@@ -12,7 +12,9 @@
     z-index: -1;
 }
 .cart-container{
-    background-color: white;
+    color: white;
+    border-radius: 25px;
+    background-color: #222121;
     height: 60%;
     width: 60%;
     display: flex;
@@ -46,15 +48,33 @@
     cursor: grab;
 }
 .total-price{
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    border-radius: 20px;
     margin-left: 5vw;
-    background-color: white;
-    height: 15vw;
-    width: 13vw;
+    background-color: #222121;
+    height: 25vw;
+    width: 20vw;
 }
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
 
+  ::-webkit-scrollbar-track {
+    background: red; 
+  }
+   
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+ 
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
   
  

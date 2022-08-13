@@ -8,13 +8,16 @@ import tire from '../assets/tire.png'
 import { Link } from 'react-router-dom';
 import '../index.css'
 import { useCart } from '../context/CartContext';
+import { useDispatchCart } from '../context/CartContext';
 
 const Navigation = () => {
+    const dispatch = useDispatchCart()
     const items = useCart()
     const navigate = useNavigate()
     const authorized = localStorage.getItem('user')
     const logout =()=>{
         localStorage.clear()
+        dispatch({type:"REMOVE ALL"})
         navigate('/signIn')
     }
   return (
@@ -34,9 +37,7 @@ const Navigation = () => {
                 
                 <div className='fs-1 me-auto'>
                     <Link className='navlinks' to='/profile'>
-                        
                             {authorized?JSON.parse(authorized).name + "'s Profile":''}
-                        
                     </Link> 
                 </div>
                 <Nav>
@@ -61,17 +62,13 @@ const Navigation = () => {
                         </Nav> 
                         :
                     <NavDropdown className='fs-3' title="Account" id="basic-nav-dropdown">
-                        <NavDropdown.Item>
-                            <Link to='/signIn'>
+                            <Link className='account-link' to='/signIn'>
                                 Sign In
                             </Link>
-                        </NavDropdown.Item>
                     <NavDropdown.Divider />
-                        <NavDropdown.Item >
-                            <Link to="/createAccount">
+                            <Link className='account-link' to="/createAccount">
                                 Create Account
                             </Link>                           
-                        </NavDropdown.Item>
                     </NavDropdown>
                     }
                     

@@ -3,12 +3,14 @@ import './product.css'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useDispatchCart } from '../../context/CartContext'
+import { Alert } from 'react-bootstrap'
+
 
 const Product = () => {
   const dispatch = useDispatchCart()
-  // const [cart,setCart] = useState((JSON.parse(localStorage.getItem("cart")) || []))
   const url = 'http://localhost:4000/motorcycles/'
   const {id}= useParams()
+  const [show, setShow] = useState(false);
   const[bikeInfo,setBikeInfo] = useState([])
 
   const getBike = async()=>{
@@ -19,20 +21,21 @@ const Product = () => {
   const addToCart = (item)=>{ 
     console.log(item)
     dispatch({type:"ADD",item})
-    // console.log(cart)
-    // setCart([...cart,info])
-    // console.log('after',cart)
-    // localStorage.setItem("cart",JSON.stringify(cart))
-  }
-  const removeFromCart = (info)=>{
-    // setCart(cart.filter((i)=>i._id!==info._id))
-    // localStorage.setItem("cart",JSON.stringify(cart))
+    setShow(true)
   }
   useEffect(()=>{
     getBike()
   },[])
   return (
     <div className='product'>
+      {show &&(
+        <Alert variant="info" onClose={() => setShow(false)} dismissible>
+        <Alert.Heading>Success</Alert.Heading>
+        <p>
+          The product you selected was added to the cart successfully!
+        </p>
+      </Alert>
+      )}
       <h1>{bikeInfo.brand + " " + bikeInfo.model}</h1>
       <div className="product-container">
         <div className="product-image">
@@ -59,7 +62,7 @@ const Product = () => {
       
       <div className="product-description">
           {bikeInfo.description}
-      </div>
+      </div>      
     </div>
   )
 }

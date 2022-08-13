@@ -37,6 +37,21 @@
 .navlinks:hover{
   color: red;
 }
+#basic-nav-dropdown{
+  margin-top: -0.5vw;
+  margin-left: 1vw;
+}
+#basic-nav-dropdown:hover{
+  color: red;
+}
+.account-link{
+  text-decoration: none;
+  color: #0f0f0f;
+  margin-left: 2vw;
+}
+.account-link:hover{
+  color: red;
+}
 .cart-icon{
   margin-left: 1vw;
 }
@@ -48,14 +63,34 @@
   font-size: 1.2vw;
   font-weight: 800;
 }
+.footer-container{
+  height: 30vh;
+  width: 100%;
+  background-color: #595d63;
+ 
+}
 .footer{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 30vh;
-  width: 100%;
-  background-color: #0f0f0f;
+}
+.smlogo{
+  width: 50px;
 }
 .footer ul{
   list-style: none;
+  margin-top: 3vw;
+}
+.footer li{
+  font-size: 1vw;
+  color: white;
+}
+.footer-headers{
+  font-size: 1.2vw;
+  color: #B0B7BC;
+}
+.footer-copyright{
+  margin-top: 0.5vw;
+  color: whitesmoke;
+  text-align: center;
 }

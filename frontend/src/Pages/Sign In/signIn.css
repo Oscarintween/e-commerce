@@ -12,7 +12,7 @@
     background-position: center;
 }
 .sign-in_form{
-    background-color: rgba(255, 255, 255, 0.653);
+    background-color: rgba(255, 255, 255, 0.77);
     width: 30%;
     padding: 3vw;
     height: 70%;
@@ -46,4 +46,13 @@ button{
 input{
     width: auto;
     height: auto;
+}
+.error-message{
+    font-size: 1.2vw;
+    margin-top: -0.3vw !important;
+    color: red;
+}
+.alert-window{
+    z-index: 100 !important;
+    margin-top: 7vw;
 }

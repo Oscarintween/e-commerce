@@ -2,6 +2,7 @@ import React from 'react'
 import './cart.css'
 import { useCart, useDispatchCart } from '../../context/CartContext'
 
+
 const CartPage = () => {
   const items = useCart()
   const dispatch = useDispatchCart()
@@ -29,7 +30,7 @@ const CartPage = () => {
           <h2>No items in Cart</h2>
           :
             items.map((item,index)=>(
-             <div key={item.index} className="cart-items">
+             <div key={index} className="cart-items">
                 <div className='delete-icon'>
                 <i className="bi bi-trash text-danger" onClick={()=>deleteBike(index)}></i>
                 </div>
@@ -40,7 +41,7 @@ const CartPage = () => {
                   <h3>{item.brand + ' ' + item.model}</h3>
                 </div>
                 <div className="item-price">
-                  <h3>{item.price}</h3>
+                  <h3>${item.price}</h3>
                 </div>
               </div>
            )         
@@ -52,12 +53,11 @@ const CartPage = () => {
           <h2>TOTAL PRICE</h2>
         </div>
         <div>
-          <h2>{totalPrice.toLocaleString()}</h2>
+          <h2>${totalPrice.toLocaleString()}</h2>
         </div>
         <div>
           <button>Checkout</button>
         </div>
-        
       </div>
     </div>
   )

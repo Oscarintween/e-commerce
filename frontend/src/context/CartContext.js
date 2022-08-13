@@ -11,12 +11,15 @@ const reducer = (state,action)=>{
             const newArr = [...state]
             newArr.splice(action.index,1)
             return newArr  
+        case "REMOVE ALL":
+            return[]
         default:
             throw new Error(`unknown action${action.type}`)
     }
 }
 export const CartProvider = ({children}) =>{
     const [state,dispatch] = useReducer(reducer,[])
+
     return(
         <CartDispatchContext.Provider value={dispatch}>
             <CartStateContext.Provider value={state}>

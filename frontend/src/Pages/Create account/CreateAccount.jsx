@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 
 const CreateAccount = () => {
   const navigate = useNavigate()
-  const url = 'http://localhost:4000/user/register'
+  const url = 'https://backend-motoshop-app.herokuapp.com/user/register'
   const [name,setName] = useState('')
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')

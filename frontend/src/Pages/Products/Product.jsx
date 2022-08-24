@@ -8,7 +8,7 @@ import { Alert } from 'react-bootstrap'
 
 const Product = () => {
   const dispatch = useDispatchCart()
-  const url = 'http://localhost:4000/motorcycles/'
+  const url = 'https://backend-motoshop-app.herokuapp.com/motorcycles/'
   const {id}= useParams()
   const [show, setShow] = useState(false);
   const[bikeInfo,setBikeInfo] = useState([])
